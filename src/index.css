@@ -2,19 +2,44 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #c3fd3d;
 }
 .hidden{
   display: none;
+}
+
+.nav--icon {
+  height: 40px;
+  margin-right: 7px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #322f2f;
+  color: aliceblue;
+  padding: 25px;
+}
+
+.video--container > iframe{
+  margin: 10px 20px;
 }
  
 .App{
   margin: 0 auto;
   max-width: 600px;
 }
+.table{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 
 .crud-table {
    border-collapse: collapse;
   width: 100%;
+  
 }
 
 .crud-table td, .crud-table th {
@@ -22,15 +47,12 @@ body {
   padding: 8px;
 }
 
-.crud-table tr:nth-child(even){background-color: #f2f2f2;}
-
-.crud-table tr:hover {background-color: #ddd;}
 
 .crud-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #3CBC8D;
+  background-color: #4CAF50;;
   color: white;
 }
 
@@ -48,7 +70,7 @@ input[type=text]:focus {
 }
 
 .btn {
-  background-color: #4CAF50; /* Green */
+  background-color: #c3fd3d; 
   border: none;
   color: white;
   padding: 15px 32px;

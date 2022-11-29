@@ -1,14 +1,17 @@
 import React, { Component } from "react";
+import Video from "./components/Video";
+import Navbar from "./components/Navbar";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [
-        { text: "A1", id: "1" },
-        { text: "B1", id: "2" }
+        { text: "Lorem", id: "1" },
+        { text: "Ipsum", id: "2" }
       ],
       text: "",
-      updateText: ""
+      updateText:"",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,68 +21,73 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Formulario CRUD</h1>
+        <Navbar />
+        <div className="table">
+          <h1>To-Do List</h1>
+          <form onSubmit={this.handleSubmit} className="form">
+            Tarea: <br></br>
+            <input
+              type="text"
+              value={this.state.text}
+              placeholder="Escribe tu tarea"
+              onChange={this.handleChange}
+            />
+            <br></br>
+            <button type="submit" className="btn save-btn">
+              Guardar 
+            </button>
+          </form>
 
-        <form onSubmit={this.handleSubmit}>
-          Nombre
-          <input
-            type="text"
-            value={this.state.text}
-            placeholder="Introduce tu nombre"
-            onChange={this.handleChange}
-          />
-          <button type="submit" className="btn save-btn">
-            Guardar
-          </button>
-        </form>
+          <h1> Lista de pendientes</h1>
 
-        <h1> Base de datos</h1>
-
-        <table className="crud-table">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.items.map((item, index) => (
-              <tr key={item.id + index}>
-                <td className={item.showHide ? "hidden" : ""}> {item.text} </td>
-                <td className={item.showHide ? "" : "hidden"}>
-                  <input
-                    type="text"
-                    onChange={this.updateChange}
-                    defaultValue={item.text}
-                  />
-                </td>
-                <td>
-                  <button
-                    className={item.showHide ? "hidden" : "btn save-btn"}
-                    onClick={() => this.update(item)}
-                  >
-                   Actualizar
-                  </button>
-                  <button
-                    className={item.showHide ? "btn save-btn" : "hidden"}
-                    onClick={() => this.save(item)}
-                  >
-                    Guardar
-                  </button>
-                  <button
-                    className="btn del-btn"
-                    onClick={() => this.delete(item)}
-                  >
-                    Eliminar
-                  </button>
-                </td>
+          <table className="crud-table">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th>Acciones</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {this.state.items.map((item, index) => (
+                <tr key={item.id + index}>
+                  <td className={item.showHide ? "hidden" : ""}> {item.text} </td>
+                    <td className={item.showHide ? "" : "hidden"}>
+                    <input
+                      type="text"
+                      onChange={this.updateChange}
+                      defaultValue={item.text}
+                    />
+                    </td>
+                  <td>
+                    <button
+                      className={item.showHide ? "hidden" : "btn save-btn"}
+                      onClick={() => this.update(item)}
+                    >
+                    Actualizar
+                    </button>
+                    <button
+                      className={item.showHide ? "btn save-btn" : "hidden"}
+                      onClick={() => this.save(item)}
+                    >
+                      Guardar
+                    </button>
+                    <button
+                      className="btn del-btn"
+                      onClick={() => this.delete(item)}
+                    >
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <Video />
       </div>
     );
   }
+  
   delete(e) {
     this.state.items.splice(this.state.items.indexOf(e), 1);
     this.setState({ items: this.state.items });
