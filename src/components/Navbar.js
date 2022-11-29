@@ -5,7 +5,7 @@ export default function Navbar() {
         <nav>
             <img src="https://picsum.photos/200" className="nav--icon" alt=""/>
             <h1 className="main--title">App desarrollada con React</h1>
-            <p className="main--content">
+            <p className="main--autor">
                 Estudiante: Yaser Gandhi Hernández Esquivel
             </p>
 

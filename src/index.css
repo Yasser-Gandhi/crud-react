@@ -8,6 +8,22 @@ body {
   display: none;
 }
 
+.main--title{
+  text-align: center;
+  font-size: 2rem;
+  color: #322f2f;
+  margin: 1rem 0;
+}
+.main--autor{
+  text-align: center;
+  font-size: 1rem;
+  color: rgb(249, 253, 252);
+  margin: 1rem 0;
+  background-color: #322f2f;
+  border-radius: 15px;
+  padding: 10px;
+}
+
 .nav--icon {
   height: 40px;
   margin-right: 7px;
@@ -82,6 +98,15 @@ input[type=text]:focus {
   cursor: pointer;
 }
 
-.save-btn {background-color: #4CAF50;} /* Blue */
-.del-btn {background-color: #f44336;} /* Red */ 
+.save-btn {background-color: #4CAF50;} 
+.del-btn {background-color: #f44336;} 
  
+@media screen and (max-width: 599px) {
+  .App {
+    width: 80%;
+  }
+  .video--container > iframe{
+    margin: 10px 20px;
+    max-width: 80%;
+  }
+}
